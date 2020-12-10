@@ -18,22 +18,22 @@ public class ZnwrAddToCardTest
         driver.get("https://znwr.ru");
         WebElement SearchClick = WaitForElementLocatedBy(driver, By.id("header__search-btn"));
         SearchClick.click();
-        WebElement SearchInput = WaitForElementLocatedBy(driver, By.xpath("//*[@id=\"catalog\"]/div[1]/div/form/input"));
+        WebElement SearchInput = WaitForElementLocatedBy(driver, By.xpath("//div[@class=\"catalog__search\"]//input"));
         SearchInput.click();
         SearchInput.sendKeys("Вчера работало");
-        WebElement SearchButton = WaitForElementLocatedBy(driver, By.xpath("//*[@id=\"catalog\"]/div[1]/div/form/button"));
+        WebElement SearchButton = WaitForElementLocatedBy(driver, By.xpath("//div[@class=\"catalog__search\"]//button"));
         SearchButton.click();
-        WebElement Product = WaitForElementLocatedBy(driver, By.xpath("//*[@id=\"catalog__card-list\"]/div/div[1]/div[1]/div[2]/a/picture/img"));
+        WebElement Product = WaitForElementLocatedBy(driver, By.xpath("//div[@class=\"card__content\"]//a"));
         Product.click();
-        WebElement SelectProductColor = WaitForElementLocatedBy(driver, By.xpath("//*[@id=\"product\"]/div[1]/div[2]/div/div/div[2]/div/div/a"));
+        WebElement SelectProductColor = WaitForElementLocatedBy(driver, By.xpath("//a[@title=\"Черный\"]"));
         SelectProductColor.click();
-        WebElement SelectProductSize = WaitForElementLocatedBy(driver, By.xpath("//*[@id=\"product\"]/div[1]/div[2]/div/div/div[3]/div[1]/div[1]/div/div[2]"));
+        WebElement SelectProductSize = WaitForElementLocatedBy(driver, By.xpath("//div[@data-variant-id=\"2\"]"));
         SelectProductSize.click();
-        WebElement AddProductToOrder = WaitForElementLocatedBy(driver, By.xpath("//*[@id=\"product__add-cart-btn\"]"));
+        WebElement AddProductToOrder = WaitForElementLocatedBy(driver, By.xpath("//button[@id=\"product__add-cart-btn\"]"));
         AddProductToOrder.click();
-        WebElement Order = WaitForElementLocatedBy(driver, By.xpath("//*[@id=\"product__success-modal\"]/div[2]/a"));
+        WebElement Order = WaitForElementLocatedBy(driver, By.xpath("//div[@class=\"product__success-modal-btn\"]//a "));
         Order.click();
-        WebElement Card = WaitForElementLocatedBy(driver, By.xpath("//*[@id=\"header\"]/div[3]/div[2]/a"));
+        WebElement Card = WaitForElementLocatedBy(driver, By.xpath("//a[@class=\"header__cart-btn\"]"));
         Assert.assertTrue(Card.isEnabled(), "FAILED TEST");
     }
     private static WebElement WaitForElementLocatedBy(WebDriver driver, By by)
